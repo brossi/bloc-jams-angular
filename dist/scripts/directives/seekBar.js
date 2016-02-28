@@ -41,16 +41,18 @@
         scope.trackThumb = function() {
           $document.bind('mousemove.thumb', function(event) {
             var percent = calculatePercent(seekBar, event);
-              scope.$apply(function() {
-                scope.value = percent * scope.max;
-              });
+              scope.value = percent * scope.max;
             });
 
           $document.bind('mouseup.thumb', function() {
             $document.unbind('mousemove.thumb');
             $document.unbind('mouseup.thumb');
           });
-        }; 
+        };
+
+        scope.thumbStyle = function() {
+          return {left: percentString()};
+        };
       }
     };
   };
