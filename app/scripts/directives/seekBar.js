@@ -19,17 +19,16 @@
         onChange: '&'
       },
       link: function(scope, element, attributes) {
-        scope.value = 0;
-        scope.max = 100;
+        scope.value, scope.max;
         
         var seekBar = $(element);
 
         attributes.$observe('value', function(newValue) {
-          scope.value = newValue;
+          scope.value = newValue || 0;
         });
 
         attributes.$observe('max', function(newValue) {
-          scope.max = newValue;
+          scope.max = newValue || 100;
         });
 
         var percentString = function () {
